@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'pages',
     'accounts',
     'blog',
+    'crispy_forms',
 
 ]
 
@@ -128,7 +129,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL= 'accounts.CustomUser'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
-LOGIN_REDIRECT_URL= 'home'
-LOGOUT_REDIRECT_URL= 'home'
+
+LOGIN_REDIRECT_URL= 'post_list'
+LOGOUT_REDIRECT_URL= 'post_list'

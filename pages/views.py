@@ -8,4 +8,4 @@ from django.views import generic
 
 class HomePage(generic.TemplateView):
 
-    template_name='pages/home.html'
+    template_name='home.html'
