@@ -33,7 +33,6 @@ class PostCreateView(LoginRequiredMixin , generic.CreateView):
     template_name = 'blog/post_create.html'
     success_url = reverse_lazy('post_list')
 
-
     def form_valid(self , form):
         lost = form.save(commit=False)
         lost.user = self.request.user 
@@ -58,8 +57,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView
     model = Post
     template_name = 'blog/post_delete.html'
     success_url = reverse_lazy('post_list')
-
-    
+   
     def test_func(self):
         obj = self.get_object()
         return obj.user == self.request.user
