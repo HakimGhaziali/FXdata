@@ -1,7 +1,7 @@
 from django.urls import reverse
 from django.db import models
 from django.contrib.auth import get_user_model
-
+from django_resized  import ResizedImageField
 class Post(models.Model):
     STATUS_CHOICES = (
         ('pub', 'Published'),
@@ -14,9 +14,15 @@ class Post(models.Model):
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
     status = models.CharField(choices=STATUS_CHOICES, max_length=3)
+    upload = models.ImageField(upload_to ='upload/')
+
+    
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
         return reverse('post_detail', args=[self.pk])
+
+
+    

@@ -5,12 +5,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin , UserPassesTestMixin
 
 
 
-
-
-
-# Create your views here.
 from .forms import PostForm
 from .models import Post
+
 
 class PostList(generic.ListView):
 
@@ -29,6 +26,7 @@ class PostDetail(generic.DetailView):
 
 
 class PostCreateView(LoginRequiredMixin , generic.CreateView):
+
     form_class = PostForm
     template_name = 'blog/post_create.html'
     success_url = reverse_lazy('post_list')
