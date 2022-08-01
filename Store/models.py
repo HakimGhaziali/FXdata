@@ -21,8 +21,8 @@ class Book(models.Model):
 class Review(models.Model):
 
     content = models.TextField()
-    author = models.ForeignKey(get_user_model() , on_delete= models.CASCADE, related_name='reviews')
-    Book= models.ForeignKey(Book , related_name ='reviews' , on_delete= models.CASCADE)
+    authorreview = models.ForeignKey(get_user_model() , on_delete= models.CASCADE, related_name='reviews')
+    Book= models.ForeignKey(Book , on_delete= models.CASCADE,  related_name='reviews')
 
 
     def __str__(self):

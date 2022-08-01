@@ -17,6 +17,6 @@ class BookDetailView(generic.DetailView):
 
     model = Book
     template_name = 'store/book_detail.html'
-    context_object_name = 'store/book_detail'
+    context_object_name = 'book_detail'
 
 
