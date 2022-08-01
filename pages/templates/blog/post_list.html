@@ -25,6 +25,15 @@
                             <p class="card-text py-3">
                                 {{ post.text }}
                             </p>
+
+                            {% if post.upload %}             
+
+                            <img src="{{ post.upload.url }}" alt="Smiley face" width="450" height="300">
+
+                            {% else %}
+                            {% endif %}
+
+
                             
                          
 

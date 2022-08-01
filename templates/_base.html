@@ -28,10 +28,10 @@
         </div>
         <div class="mx-2 text-white">
             {% if user.is_authenticated %}
-             welcome {{user.username}} | <a class="text-light bg-dark" href="{% url 'logout' %}" class="text_light"> Logout </a> | 
+             welcome {{user.username}} | <a class="text-light bg-dark" href="{% url 'account_logout' %}" class="text_light"> Logout </a> | 
                         
             {% else %}
-            <p><a href="{% url 'login' %}" class="text-light bg-dark">Login</a>| <a href="{% url 'signup' %}" class="text-light bg-dark">Signup</a></p>
+            <p><a href="{% url 'account_login' %}" class="text-light bg-dark">Login</a>| <a href="{% url 'account_signup' %}" class="text-light bg-dark">Signup</a></p>
 
           
             {% endif %}
