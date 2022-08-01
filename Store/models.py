@@ -13,7 +13,7 @@ class Book(models.Model):
 
 
     def get_absolute_url(self):
-        return reverse("book_detial", args=str(self.id))
+        return reverse("book_detail", args=str(self.id))
     
 
 

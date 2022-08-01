@@ -23,14 +23,11 @@
                 {% for review in book_detail.reviews.all %}
 
                 
-                
-                
 
                 <div class="card shadow my-3 p-5">
                     <h3>Comments:</h3>
                     {{  review.authorreview    }}
                     <br>
-
                     {{  review.content    }}
                 </div>
                 {% endfor %}
