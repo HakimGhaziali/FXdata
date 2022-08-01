@@ -32,9 +32,9 @@ class PostCreateView(LoginRequiredMixin , generic.CreateView):
     success_url = reverse_lazy('post_list')
 
     def form_valid(self , form):
-        lost = form.save(commit=False)
-        lost.user = self.request.user 
-        lost.save()
+        form = form.save(commit=False)
+        form.user = self.request.user 
+        form.save()
         return redirect(self.success_url)
 
 

@@ -1,3 +1,4 @@
+from tkinter.tix import Tree
 from django.urls import reverse
 from django.db import models
 from django.contrib.auth import get_user_model
@@ -15,7 +16,7 @@ class Post(models.Model):
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
     status = models.CharField(choices=STATUS_CHOICES, max_length=3)
-    upload = models.ImageField(upload_to ='uploads/' , blank=True)
+    upload = models.ImageField(upload_to ='upload/' , blank=True)
 
     
 
