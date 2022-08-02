@@ -37,20 +37,30 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #new app
     'pages',
     'accounts',
     'blog',
     'crispy_forms',
     'Store',
 
-
+    #package
     
     'allauth',
     'allauth.account',
+    'rest_framework',
 
 ]
 
 SITE_ID = 1
+
+
+REST_FRAMEWORK = {
+'DEFAULT_PERMISSION_CLASSES': [
+'rest_framework.permissions.AllowAny',
+]
+}
 
 
 MIDDLEWARE = [
