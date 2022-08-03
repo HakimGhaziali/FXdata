@@ -185,3 +185,11 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL= 'post_list'
 LOGOUT_REDIRECT_URL= 'post_list'
+
+
+
+
+REST_AUTH_REGISTER_PERMISSION_CLASSES = (
+    'rest_framework.permissions.AllowAny',
+
+)
