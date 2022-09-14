@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'blog',
     'crispy_forms',
     'Store',
-    'Cart'
+    'Cart',
 
     #package
     
