@@ -19,13 +19,29 @@ class PostList(generic.ListView):
 
 
 def post_detail(request , pk):
+    post = get_object_or_404(Post , id=pk)
 
     if request.method == 'GET':
-        print('hmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm')
         form = CommentForm()
-        post = get_object_or_404(Post , id=pk)
+        
         #post = Post.objects.get(id=pk)
         return render(request , 'blog/post_detail.html' , {'form':form , 'post': post})
+
+    if request.method == 'POST':
+
+        form = CommentForm(request.POST)
+
+        if form.is_valid():
+
+            Comment = form.save(commit=False)
+            Comment.post = post
+            Comment.user = request.user
+            Comment.save()
+
+            return render(request , 'blog/post_list.html')
+
+
+        
 
 #class PostDetail(generic.DetailView):
 
