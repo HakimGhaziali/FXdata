@@ -38,7 +38,7 @@ def post_detail(request , pk):
             Comment.user = request.user
             Comment.save()
 
-            return render(request , 'blog/post_list.html')
+            return render(request , 'blog/post_list.html' , {'post_list': Post.objects.all() })
 
 
         
