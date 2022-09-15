@@ -39,3 +39,19 @@ class Post(models.Model):
 
 
 
+
+class Comment(models.Model):
+
+    content = models.TextField()
+    post = models.ForeignKey(Post , on_delete=models.CASCADE , related_name='comments')
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE , related_name='user_comment')
+
+
+    def __str__(self):
+
+        return f'self.content'
+
+
+
+
+

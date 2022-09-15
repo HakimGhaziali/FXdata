@@ -2,10 +2,10 @@ from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin , UserPassesTestMixin
+from django.shortcuts import  get_object_or_404
 
 
-
-from .forms import PostForm
+from .forms import PostForm , CommentForm
 from .models import Post
 
 
@@ -18,11 +18,20 @@ class PostList(generic.ListView):
 
 
 
-class PostDetail(generic.DetailView):
+def post_detail(request , pk):
 
-    model= Post
-    template_name = 'blog/post_detail.html'
-    context_object_name = 'post'
+    if request.method == 'GET':
+        print('hmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm')
+        form = CommentForm()
+        post = get_object_or_404(Post , id=pk)
+        #post = Post.objects.get(id=pk)
+        return render(request , 'blog/post_detail.html' , {'form':form , 'post': post})
+
+#class PostDetail(generic.DetailView):
+
+# #   model= Post
+# #   template_name = 'blog/post_detail.html'
+#    context_object_name = 'post'
 
 
 class PostCreateView(LoginRequiredMixin , generic.CreateView):
@@ -36,6 +45,17 @@ class PostCreateView(LoginRequiredMixin , generic.CreateView):
         form.user = self.request.user 
         form.save()
         return redirect(self.success_url)
+
+
+#class CommentCreateView(LoginRequiredMixin , generic.CreateView):
+
+#    form_class = CommentForm
+#    template_name = 'blog/post_detail.html'
+#    success_url = reverse_lazy('post_list')
+
+
+
+
 
 
 

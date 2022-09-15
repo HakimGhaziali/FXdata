@@ -1,5 +1,10 @@
 {% extends '_base.html' %}
 
+
+{% load crispy_forms_tags %}
+
+
+
 {% block page_title %}
     Post Detail
 {% endblock page_title %}
@@ -62,4 +67,19 @@
             </div>
         </div>
     </div>
+
+
+    
+    <form method="POST" >
+        {% csrf_token %}
+        
+            {{ form|crispy }} 
+
+
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+        
+    </form>
+
 {% endblock content %}
