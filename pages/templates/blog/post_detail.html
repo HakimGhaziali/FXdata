@@ -69,6 +69,9 @@
     </div>
 
 
+
+
+
     
     <form method="POST" >
         {% csrf_token %}
@@ -76,10 +79,22 @@
             {{ form|crispy }} 
 
 
-        
-        <button type="submit" class="btn btn-primary">Submit</button>
+            {% if user.is_authenticated %}
 
-        
+        <button type="submit" class="btn btn-primary">Submit</button>
+            {% else %}
+
+            you need to register
+      {% endif %}
+  
     </form>
 
+
+
+
+
+
 {% endblock content %}
+
+
+

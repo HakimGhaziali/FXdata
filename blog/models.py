@@ -35,9 +35,6 @@ class Post(models.Model):
         return reverse('post_detail', args=[self.pk])
 
 
-    
-
-
 
 
 class Comment(models.Model):
@@ -49,9 +46,33 @@ class Comment(models.Model):
 
     def __str__(self):
 
-        return f'self.content'
+        return self.content
 
 
 
 
 
+
+Currency = (
+    ('usd', 'usd'),
+    ('eur', 'eur'),
+    ('gbp','gbp'),
+    ('aud','aud'),
+    ('nzd','nzd'),
+    ('cad','cad'),
+    ('jpy','jpy'),
+    ('cny','cny')
+    )
+
+
+
+class EconomicCalender(models.Model):
+
+    Date = models.DateTimeField()
+    currency = models.CharField(choices=Currency, max_length=10)
+    name= models.CharField(max_length=200)
+    detail = models.TextField()
+    actual = models.CharField(max_length=100)
+    previous = models.CharField(max_length=100)
+    actual = models.CharField(max_length=100)
+    
