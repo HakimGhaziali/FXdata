@@ -10,6 +10,11 @@ session = (
     )
 
 
+STATUS_POST = (
+        ('news', 'news'),
+        ('article', 'article'),
+    ) 
+
 
 class Post(models.Model):
     STATUS_CHOICES = (
@@ -23,7 +28,9 @@ class Post(models.Model):
     datetime_modified = models.DateTimeField(auto_now=True)
     status = models.CharField(choices=STATUS_CHOICES, max_length=3)
     upload = models.ImageField(upload_to ='upload/' , blank=True)
-    session = models.CharField(choices=session, max_length=3)
+    session = models.CharField(choices=session, max_length=10)
+    type = models.CharField(choices=STATUS_POST, max_length=10)
+
 
 
     

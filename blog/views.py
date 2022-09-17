@@ -6,8 +6,7 @@ from django.shortcuts import  get_object_or_404
 
 
 from .forms import PostForm , CommentForm
-from .models import Post
-
+from .models import Post , EconomicCalender
 
 class PostList(generic.ListView):
 
@@ -97,3 +96,12 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView
     def test_func(self):
         obj = self.get_object()
         return obj.user == self.request.user
+
+
+
+
+class Calender(generic.ListView):
+
+    model = EconomicCalender
+    template_name = 'blog/ecocalender.html'
+    context_object_name = 'ecocalender'
