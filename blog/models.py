@@ -60,20 +60,24 @@ class Comment(models.Model):
 
 
 
-Currency = (
-    ('usd', 'usd'),
-    ('eur', 'eur'),
-    ('gbp','gbp'),
-    ('aud','aud'),
-    ('nzd','nzd'),
-    ('cad','cad'),
-    ('jpy','jpy'),
-    ('cny','cny')
-    )
-
-
 
 class EconomicCalender(models.Model):
+    
+
+
+    Currency = (
+
+       ('usd', 'usd'),
+       ('eur', 'eur'),
+       ('gbp','gbp'),
+       ('aud','aud'),
+       ('nzd','nzd'),
+       ('cad','cad'),
+       ('jpy','jpy'),
+       ('cny','cny')
+        )
+
+
 
     Date = models.DateTimeField()
     currency = models.CharField(choices=Currency, max_length=10)
@@ -81,13 +85,12 @@ class EconomicCalender(models.Model):
     detail = models.TextField()
     actual = models.CharField(max_length=100)
     previous = models.CharField(max_length=100)
-    actual = models.CharField(max_length=100)
+    forecast = models.CharField(max_length=100)
     
 
 
     def __str__(self):
 
         return f'{self.name} , {self.currency}'
-
 
 

@@ -1,9 +1,6 @@
 {% extends '_base.html' %}
 
 
-
-
-
 {% block page_title %}
     Add new post
 {% endblock page_title %}
@@ -14,9 +11,24 @@
 
 {% for calender in ecocalender %}
 
-{{ calender.Date }}
-{{ calender.name }}
-{{ calender.currency }}
+
+<table style="width:100%">
+    <tr>
+      <th>Date</th>
+      <th>name</th>
+      <th>currency</th>
+    </tr>
+    <tr>
+      <td>{{ calender.Date }}</td>
+      <td>{{ calender.name }}</td>
+      <td>{{ calender.currency }}</td>
+    </tr>
+    <tr>
+      <td>Centro comercial Moctezuma</td>
+      <td>Francisco Chang</td>
+      <td>Mexico</td>
+    </tr>
+  </table> 
 
 
 {% endfor %}

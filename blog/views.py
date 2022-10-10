@@ -22,10 +22,8 @@ def post_detail(request , pk):
     post = get_object_or_404(Post , pk=pk)
 
     if request.method == 'GET':
-        form = CommentForm()
-        
-        #post = Post.objects.get(id=pk)
-        
+        form = CommentForm()   
+
 
     if request.method == 'POST':
 
@@ -41,16 +39,6 @@ def post_detail(request , pk):
 
     return render(request , 'blog/post_detail.html' , {'form':form , 'post': post})
 
-
-        
-
-#class PostDetail(generic.DetailView):
-
-# #   model= Post
-# #   template_name = 'blog/post_detail.html'
-#    context_object_name = 'post'
-
-
 class PostCreateView(LoginRequiredMixin , generic.CreateView):
 
     form_class = PostForm
@@ -62,19 +50,6 @@ class PostCreateView(LoginRequiredMixin , generic.CreateView):
         form.user = self.request.user 
         form.save()
         return redirect(self.success_url)
-
-
-#class CommentCreateView(LoginRequiredMixin , generic.CreateView):
-
-#    form_class = CommentForm
-#    template_name = 'blog/post_detail.html'
-#    success_url = reverse_lazy('post_list')
-
-
-
-
-
-
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):

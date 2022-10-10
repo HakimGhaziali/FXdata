@@ -9,7 +9,6 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'status', 'datetime_modified',)
 
 
-
 admin.site.register(Comment)
 
 
