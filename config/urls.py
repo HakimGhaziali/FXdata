@@ -20,7 +20,6 @@ from django.conf import settings
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("jj", include("pages.urls")), 
     path('accounts/', include('allauth.urls')),
     path("", include("blog.urls")),  
     path("store/", include("Store.urls")),  
